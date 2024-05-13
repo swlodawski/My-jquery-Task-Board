@@ -1,7 +1,7 @@
 // Retrieve tasks and nextId from localStorage
 let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
-
+const formModal = document.getElementById('Add Task');
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
     return nextId ++;
@@ -21,7 +21,7 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
-
+    
 }
 
 // Todo: create a function to handle deleting a task
