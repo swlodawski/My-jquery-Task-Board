@@ -3,6 +3,10 @@ let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 const formModal = document.getElementById('formModal');
 const tasks = [];
+
+
+
+
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
    return Math.floor(Math.random * 100000).toString();
@@ -10,10 +14,22 @@ function generateTaskId() {
 }
 
 // Todo: create a function to create a task card
-function createTaskCard(task) {
-    const taskCard = `<div class="task-card"
-    id ="task-${task.id}"</div>`;
-    return taskCard;
+function createTaskCard({id, taskTitle, taskDueDate, taskDescription},
+        isDone
+) {
+    const newTaskCard = $(
+        `<div class='card task-card mb-3 draggable $(!isDone && compareDates(taskDueDate).cardBg}'data-task='${id}'>`
+    );
+
+    newTaskCard.html(`<h4 class='card-header'>${taskTitle}</h4>
+        <div class='card-body'>
+            <p>${taskDescription}</p>
+            <p>${dayjs(taskDescription).format('MM/DD/YYYY')}</p>
+            <button class='btn btn-danger'
+            ${!isDone && compareDates(taskDueDate).btnBorder}'>Delete</button>
+
+        </div>
+    `);
 }
 
 // Todo: create a function to render the task list and make cards draggable
