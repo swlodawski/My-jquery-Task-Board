@@ -54,6 +54,15 @@ tasks.forEach((task) => {
     }
 });
 
+
+$('.draggable').draggable({
+        opacity: 0.7,
+        zindex: 100,
+        helper: function(e) {
+            const original = $(e.target).hasClass('ui-draggable')
+        }
+})
+
 }
 
 
