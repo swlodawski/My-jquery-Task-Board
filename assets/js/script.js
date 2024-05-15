@@ -84,7 +84,32 @@ $('.draggable').draggable({
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
-    
+    event.preventDefault();
+
+    const form = event.target;
+    $(form).addClass('was-validated');
+
+    if('!form.checkValidity'())
+        {return;
+}
+
+const taskTitle = $(event.target).find('input')[0].value;
+const taskDueDate = $(event.target).find('input')[0].value;
+const taskDescription = $(event.target).find('input')[0].value;
+
+const newTask = {
+    id: generateTaskId(),
+    taskTitle,
+    taskDueDate,
+    taskDescription,
+    status: 'to-do',
+};
+
+tasks.push(newTask);
+
+localStorage.setItem('tasks', JSON.stringify(tasks));
+
+renderTaskList();
 }
 
 // Todo: create a function to handle deleting a task
