@@ -1,8 +1,8 @@
 // Retrieve tasks and nextId from localStorage
-let taskList = JSON.parse(localStorage.getItem("tasks")) || [];
-let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
-const formModal = document.getElementById('formModal');
-const tasks = [];
+let taskList = JSON.parse(localStorage.getItem("tasks"));
+let nextId = JSON.parse(localStorage.getItem("nextId"));
+
+let tasks = [];
 
 function compareDates(dueDate) {
     const formattedDueDate = dayjs(dueDate);
@@ -11,7 +11,7 @@ function compareDates(dueDate) {
         return{cardBg: 'bg-warning', btnBorder: null};
     }
     if(formattedDueDate.isSameOrBefore()) {
-        return{cardBg: 'bg-danger', btnBorder: null};
+        return{cardBg: 'bg-danger test-white', btnBorder: 'border-white'};
     }
         return{cardBg: 'null', btnBorder: null};
 }
@@ -19,7 +19,7 @@ function compareDates(dueDate) {
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
-   return Math.floor(Math.random * 100000).toString();
+   return Math.floor(Math.random() * 100000).toString();
   
 }
 
@@ -28,16 +28,15 @@ function createTaskCard({id, taskTitle, taskDueDate, taskDescription},
         isDone
 ) {
     const newTaskCard = $(
-        `<div class='card task-card mb-3 draggable $(!isDone && compareDates(taskDueDate).cardBg}'data-task='${id}'>`
+        `<div class = 'card task-card mb-3 draggable ${!isDone && compareDates(taskDueDate).cardBg}data-task= '${id}'>`
     );
 
     newTaskCard.html(`<h4 class='card-header'>${taskTitle}</h4>
         <div class='card-body'>
             <p>${taskDescription}</p>
-            <p>${dayjs(taskDescription).format('MM/DD/YYYY')}</p>
+            <p>${dayjs(taskDueDate).format('MM/DD/YYYY')}</p>
             <button class='btn btn-danger'
-            ${!isDone && compareDates(taskDueDate).btnBorder}'>Delete</button>
-
+            ${!isDone && compareDates(taskDueDate).btnBorder}>Delete</button>
         </div>
     `);
 
@@ -67,14 +66,14 @@ tasks.forEach((task) => {
 
 $('.draggable').draggable({
         opacity: 0.7,
-        zindex: 100,
+        zIndex: 100,
         helper: function(e) {
             const original = $(e.target).hasClass('ui-draggable')
             ? $(e.target)
             : $(e.target).closest('ui-draggable');
 
             return original.clone().css({
-
+                width: original.outerWidth(),
             });
         },
 });
@@ -94,8 +93,8 @@ function handleAddTask(event){
 }
 
 const taskTitle = $(event.target).find('input')[0].value;
-const taskDueDate = $(event.target).find('input')[0].value;
-const taskDescription = $(event.target).find('input')[0].value;
+const taskDueDate = $(event.target).find('input')[1].value;
+const taskDescription = $(event.target).find('input')[2].value;
 
 const newTask = {
     id: generateTaskId(),
