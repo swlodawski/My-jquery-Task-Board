@@ -114,7 +114,16 @@ renderTaskList();
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
+    const deleteCardId = 
+        $(event.target).parent.parent()[0].dataset.task;
+        tasks = tasks.filter((tasks) => {
+            return task.id !== deleteCardId;
+        });
 
+    localStorage.setItem('tasks', JSON.stringify((tasks)));
+
+    renderTaskList();
+    
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
