@@ -4,7 +4,17 @@ let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 const formModal = document.getElementById('formModal');
 const tasks = [];
 
+function compareDates(dueDate) {
+    const formattedDueDate = dayjs(dueDate);
 
+    if(formattedDueDate.isTommorrow() || formattedDueDate.isToday()) {
+        return{cardBg: 'bg-warning', btnBorder: null};
+    }
+    if(formattedDueDate.isSameOrBefore()) {
+        return{cardBg: 'bg-danger', btnBorder: null};
+    }
+        return{cardBg: 'null', btnBorder: null};
+}
 
 
 // Todo: create a function to generate a unique task id
