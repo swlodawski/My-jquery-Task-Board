@@ -25,23 +25,36 @@
       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
-    <div id="#formModal" class="modal">
-      <div class="modal-content">Task</div>
-      <!-- Modal Form Information -->
-      <form>
-        <h2>Add Task</h2>
-        <label for="Task Title" id="taskTitle">Task Title</label>
-        <input type="text" id="taskTitle">
-        <!-- Code related to the Task Title Portion of the Form Modal -->
-        <label for="Task Due Date" id="taskDueDate">Task Due Date</label>
-        <input type="text" id="taskDueDate">
-        <!-- Code related to the Task Due Date Portion of the Form Modal -->
-        <label for="Task Description" id="taskDescription">Task Description</label>
-        <textarea type="text" id="taskDescription">
-        <!-- Code related to the Task Description Portion of the Form Modal -->
-          <input id="addTaskButton" type="addTask" value="Add Task">
-        <!-- Code related to the Submit Button Portion of the Form Modal -->
-      </form>
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="exampleModalLabel" hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <form class="row g-3 needs-validation" id="taskForm" novalidate>
+          <div class="col-md-6">
+            <label for="taskTitle" class="form-label">Task Title<label>
+              <input type="text" class="form-control" id="taskTitle" required/>
+              <div class="validate-feedback">date entered</div>
+              <div class="invalidate-feedback">enter due date</div>
+          <div class="col-md-6">
+            <label for="taskDue" class="form-label">Task Due Date<label>
+              <input type="date" class="form-control" id="taskDue" required/>
+              <div class="validate-feedback">date entered</div>
+              <div class="invalidate-feedback">enter due date</div>
+              <div class="col-md-6">
+                <label for="taskDescription" class="form-label">Task Descrioption<label>
+                  <input type="text" class="form-control" id="taskDescription" required/>
+                  <div class="validate-feedback">description entered</div>
+                  <div class="invalidate-feedback">enter description</div>
+          </div>
+        </form>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
