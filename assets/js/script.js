@@ -28,7 +28,7 @@ function createTaskCard({id, taskTitle, taskDueDate, taskDescription},
         isDone
 ) {
     const newTaskCard = $(
-        `<div class = 'card task-card mb-3 draggable ${!isDone && compareDates(taskDueDate).cardBg}data-task= '${id}'>`
+        `<div class = 'card task-card mb-3 draggable ${!isDone && compareDates(taskDueDate).cardBg}'data-task='${id}'>`
     );
 
     newTaskCard.html(`<h4 class='card-header'>${taskTitle}</h4>
@@ -36,12 +36,10 @@ function createTaskCard({id, taskTitle, taskDueDate, taskDescription},
             <p>${taskDescription}</p>
             <p>${dayjs(taskDueDate).format('MM/DD/YYYY')}</p>
             <button class='btn btn-danger'
-            ${!isDone && compareDates(taskDueDate).btnBorder}>Delete</button>
+            ${!isDone && compareDates(taskDueDate).btnBorder}'>Delete</button>
         </div>
     `);
-
     newTaskCard.find('button').on('click', handleDeleteTask);
-
     return newTaskCard;
 }
 
@@ -80,7 +78,6 @@ $('.draggable').draggable({
 
 }
 
-
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
     event.preventDefault();
@@ -114,8 +111,8 @@ renderTaskList();
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
     const deleteCardId = 
-        $(event.target).parent.parent()[0].dataset.task;
-        tasks = tasks.filter((tasks) => {
+        $(event.target).parent().parent()[0].dataset.task;
+        tasks = tasks.filter((task) => {
             return task.id !== deleteCardId;
         });
 
