@@ -7,7 +7,7 @@ let tasks = [];
 function compareDates(dueDate) {
     const formattedDueDate = dayjs(dueDate);
 
-    if(formattedDueDate.isTommorrow() || formattedDueDate.isToday()) {
+    if(formattedDueDate.isTomorrow() || formattedDueDate.isToday()) {
         return{cardBg: 'bg-warning', btnBorder: null};
     }
     if(formattedDueDate.isSameOrBefore()) {
@@ -85,7 +85,7 @@ function handleAddTask(event){
     const form = event.target;
     $(form).addClass('was-validated');
 
-    if('!form.checkValidity'())
+    if(!form.checkValidity())
         {return;
 }
 
@@ -116,7 +116,7 @@ function handleDeleteTask(event){
             return task.id !== deleteCardId;
         });
 
-    localStorage.setItem('tasks', JSON.stringify((tasks)));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
 
     renderTaskList();
     
@@ -134,7 +134,7 @@ function handleDrop(event, ui) {
     }
     });
 
-    localStorage.setItem('tasks', JSON.stringify((tasks)));
+    localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTaskList();   
 }
 
