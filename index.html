@@ -31,33 +31,35 @@
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- This area creates the body and general parts of the modal as well as a button to close the modal or add new tasks -->
           </div>
           <div class="modal-body">
             <form class="row g-3 needs-validation" id="taskForm" novalidate>
-              <!-- task title -->
+               <!-- This is the section of the form modal that will allow overall form validation. -->
               <div class="col-md-6">  
                 <label for="taskTitle" class="form-label"> Task Title</label>
                 <input type="text" class="form-control" id="taskTitle" required/>
-                <div class= "valid-feedback">tasks enetered</div>
+                <div class= "valid-feedback">tasks entered</div>
                 <div class= "invalid-feedback">enter task title</div>
               </div>
-              <!-- task due date -->
+              <!-- This is the section of the form modal that will allow the user to input and validate task information. -->
               <div class="col-md-6">
                 <label for="taskDue" class="form-label">Task Due Date</label>
                 <input type="date" class="form-control" id="taskDue" required/>
                 <div class= "valid-feedback">date entered</div>
                 <div class= "invalid-feedback">enter due date</div>
               </div>
-              <!-- task description -->
+              <!-- This is the section of the form modal that will allow the user to input and validate date information. -->
               <div class="col-12">
                 <label for="taskDescription" class="form-label">Task Description</label>
                 <input type= "text" class="form-control" id="taskDescription" required/>
-                <div class= "valid-feedback"> description enetered</div>
+                <div class= "valid-feedback"> description entered</div>
                 <div class= "invalid-feedback">enter description</div>
               </div>
             </div>
             <div class="col-12">
                  <button type="submit" class="btn btn-primary">Add Task</button>
+            <!-- This is the submit button section of the form modal which will trigger the inputted information to add to each task card drop area. -->
           </div>
          </form>
         </div>
