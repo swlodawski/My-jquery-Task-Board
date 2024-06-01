@@ -22,9 +22,9 @@ This is my fifth challenge for a jquery interactive task board.
     several categories. They can then be deleted after completed.
 2. Deployed Webpage url: https://swlodawski.github.io/My-jquery-Task-Board/
 3, Screenshots of deployed page and demo:
-         Landing Page: https://swlodawski.github.io/My-jquery-Task-Board/
-         Modal:https://swlodawski.github.io/My-jquery-Task-Board/
-         RenderedTask:https://swlodawski.github.io/My-jquery-Task-Board/
+         Landing Page: ![alt text](image.png)
+         Modal:![alt text](image-1.png)
+         RenderedTask:![alt text](image-2.png)
 
 ## Contributing
 I wanted to thank a few people who gave me insight and advice on this project. They are classmates of mine.
